@@ -2593,3 +2593,9 @@ sock.ws.on('CB:edge_routing,id:abcd,routing_info', (node: BinaryNode) => { })
 
 > [!NOTE]
 > Also, this repo is now licenced under GPL 3 since it uses [libsignal-node](https://git.questbook.io/backend/service-coderunner/-/merge_requests/1)
+
+## Acknowledgements
+
+- [Original baileys](https://github.com/WhiskeySockets/baileys)
+- [Special thanks to](https://github.com/Itsukichann/Baileys)
+- [Follow Innovators Soft](https://facebook.com/innovatorssoft)
