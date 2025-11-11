@@ -17,7 +17,7 @@ The maintainers of Baileys do not in any way condone the use of this application
 > [!IMPORTANT]
 > The original repository had to be removed by the original author - we now continue development in this repository here.
 This is the only official repository and is maintained by the community.
-> **Join the Discord [here] (https://discord.gg/nqssuNjjSH)**
+> **Join the Discord [here] (https://discord.gg/G3RfM6FDHS)**
  
 ## Example
 
@@ -46,9 +46,9 @@ import makeWASocket from '@innovatorssoft/baileys'
 ```
 
 # Links
-
-- [Discord](https://discord.gg/nqssuNjjSH)
-- [Docs](https://guide.whiskeysockets.io/)
+- [Innovators Discord] (https://discord.gg/G3RfM6FDHS)    
+- [Itsukichan Discord](https://discord.gg/nqssuNjjSH)
+- [Original Docs](https://guide.whiskeysockets.io/)
 
 # Index
 
