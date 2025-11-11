@@ -20,17 +20,31 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if [ -f package-lock.json ]; then
+          # Check for yarn first (project preference)
+          if command -v yarn >/dev/null 2>&1; then
+            if [ -f yarn.lock ]; then
+              echo "yarn.lock found -> running yarn install --frozen-lockfile"
+              yarn install --frozen-lockfile
+            else
+              echo "no yarn.lock -> running yarn install"
+              yarn install
+            fi
+          # Fallback to npm
+          elif [ -f package-lock.json ]; then
             echo "package-lock.json found -> running npm ci"
             npm ci
           else
-            echo "no package-lock.json -> generating lockfile for this run and running npm ci"
-            npm i --package-lock-only
-            npm ci
+            echo "no lock file found -> running npm install"
+            npm install
           fi
 
       - name: Run tests
-        run: npm test
+        run: |
+          if command -v yarn >/dev/null 2>&1; then
+            yarn test
+          else
+            npm test
+          fi
 
       - name: Release
         env:
