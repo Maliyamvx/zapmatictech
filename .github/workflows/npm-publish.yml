@@ -1,20 +1,24 @@
-name: Node.js Package
+name: Semantic Release
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-node@v5
         with:
           node-version: 20
+          registry-url: https://registry.npmjs.org/
 
-      - name: Install dependencies (prefer npm ci)
+      - name: Install dependencies
         run: |
           if [ -f package-lock.json ]; then
             echo "package-lock.json found -> running npm ci"
@@ -28,32 +32,8 @@ jobs:
       - name: Run tests
         run: npm test
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      # persist-credentials true only necessary if you plan to push changes from the runner
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-
-      - uses: actions/setup-node@v5
-        with:
-          node-version: 20
-          registry-url: https://registry.npmjs.org/
-
-      - name: Install dependencies for publish (prefer npm ci)
-        run: |
-          if [ -f package-lock.json ]; then
-            echo "package-lock.json found -> running npm ci"
-            npm ci
-          else
-            echo "no package-lock.json -> generating lockfile for this run and running npm ci"
-            npm i --package-lock-only
-            npm ci
-          fi
-
-      - name: Publish to npm
+      - name: Release
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-        run: npm publish
+        run: npx semantic-release
