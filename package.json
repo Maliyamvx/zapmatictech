@@ -12,10 +12,10 @@
     "automation",
     "multi-device"
   ],
-  "homepage": "https://github.com/innovatorssoft/Baileys",
+  "homepage": "https://github.com/lonardonetto/zapmatictech",
   "repository": {
     "type": "git",
-    "url": "https://github.com/innovatorssoft/Baileys.git"
+    "url": "https://github.com/lonardonetto/zapmatictech.git"
   },
   "license": "MIT",
   "author": "innovatorssoft",
@@ -99,6 +99,6 @@
     "lib": "lib"
   },
   "bugs": {
-    "url": "https://github.com/innovatorssoft/Baileys/issues"
+    "url": "https://github.com/lonardonetto/zapmatictech/issues"
   }
 }

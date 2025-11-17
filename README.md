@@ -32,17 +32,17 @@ To run the example script, download or clone the repo and then type the followin
 
 Use the stable version:
 ```
-yarn add @innovatorssoft/baileys
+yarn add zapmatictech
 ```
 
 Use the edge version (no guarantee of stability, but latest fixes + features)
 ```
-yarn add github:innovatorssoft/baileys
+yarn add github:lonardonetto/zapmatictech
 ```
 
 Then import your code using:
 ```ts 
-import makeWASocket from '@innovatorssoft/baileys'
+import makeWASocket from 'zapmatictech'
 ```
 
 # Links
